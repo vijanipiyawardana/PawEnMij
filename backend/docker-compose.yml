@@ -1,0 +1,17 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:9.4
+    restart: always
+    container_name: 'pawenmij-postgres'
+    env_file: ./containerConfig/psql.env
+    ports:
+      - 5432:5432
+    volumes:
+#      - ./containerConfig/initDb.sql:/docker-entrypoint-initdb.d/initDb.sql
+      - ./data/psql:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 1234:8080
