@@ -21,8 +21,11 @@ public class Pet {
     @Column(name = "breed")
     private String breed;
 
-    @Column(name = "status", nullable = false)
-    private String status;
+    @Column(name = "gender")
+    private String gender;
+
+    @Column(name = "status")
+    private String status = "Available";
 
     @Column(name = "name")
     private String name;
@@ -46,9 +49,10 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(String type, String breed, String status, String name, Double age, Boolean vaccinated, Boolean chipped, Boolean neutered, Owner owner) {
+    public Pet(String type, String breed, String gender, String status, String name, Double age, Boolean vaccinated, Boolean chipped, Boolean neutered, Owner owner) {
         this.type = type;
         this.breed = breed;
+        this.gender = gender;
         this.status = status;
         this.name = name;
         this.age = age;
@@ -80,6 +84,14 @@ public class Pet {
 
     public void setBreed(String breed) {
         this.breed = breed;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getStatus() {
