@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CheckBox from "./CheckBox";
 import Dropdown from "./Dropdown";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 type PetFormDataType = {
   type: string;
@@ -19,9 +20,14 @@ type PetFormDataType = {
 
 const AddPetPage = () => {
 
-  const [savedPetId, setSavedPetId] = useState("");
+  
 
   const [petFormData, setPetFormData] = useState<PetFormDataType>({type: "Dog", gender: "Male", status: "Available", vaccinated: false, chipped: false, neutered: false} as PetFormDataType);
+  const [savedPetIdLocation, setSavedPetIdLocation] = useState("");
+  const [photo, setPhoto] = useState<File>();
+  const [uploadedPhotos ,setUploadedPhotos] = useState<string[]>([]);
+  const [uploadedPhotoCount, setUploadedPhotoCount] = useState(0);
+  const navigator = useNavigate();
 
   const handleFormOnSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,7 +40,7 @@ const AddPetPage = () => {
       .then(reponse => {
         console.log(reponse)
         console.log(reponse.headers)
-        setSavedPetId(reponse.headers.location);
+        setSavedPetIdLocation(reponse.headers.location);
       });
     } catch (error) {
       console.error("Error:", error);      
@@ -61,14 +67,52 @@ const AddPetPage = () => {
         setPetFormData({...petFormData, neutered:((e.currentTarget as HTMLInputElement).checked)}); break;
       case "petDescInput":
         setPetFormData({...petFormData, description:e.currentTarget.value}); break;
+    } 
+  }
+
+  const onFileChange = (e:React.FormEvent<HTMLInputElement>) => {
+    if(e.currentTarget.files) {
+      setPhoto(e.currentTarget.files[0]);
     }
   }
+
+  const onFileUpload = () => {
+    if(!photo) {
+      return;
+    }
+
+    const photoFormData = new FormData();
+    photoFormData.append("photo", photo);
+    
+    axios.post(`http://localhost:3000${savedPetIdLocation}/photo`, photoFormData, {
+      headers : {
+        "Content-Type" : "multipart/form-data"
+      }
+    })
+    .then(reponse => {
+      console.log(reponse);
+      setUploadedPhotoCount(uploadedPhotoCount + 1);
+    })
+    .catch( err => console.error(err));
+  }
+
+  const onFinishAddingPet = () => {
+    navigator("/");
+  }
+
+  useEffect(() => {
+    if(uploadedPhotoCount > 0) {
+      axios.get(`http://localhost:3000${savedPetIdLocation}`)
+        .then(response => response.data)
+        .then(data => setUploadedPhotos(data.allPhotos));
+    }
+  }, [uploadedPhotoCount]);
 
   return (
     <div className="border border-dark mx-4 my-4 px-4 py-4">
       <h2 className="text-center">Add new pet</h2>
       
-      { savedPetId.length == 0 && 
+      { savedPetIdLocation.length == 0 && 
       <form id="addNewPetForm" className="form" onSubmit={handleFormOnSubmit}>
 
         <div className="mb-3"><label htmlFor="petTypeDropdown" className="input_label">Pet type</label></div>
@@ -94,10 +138,23 @@ const AddPetPage = () => {
         <div><textarea className="form_input-desc" id="petDescInput" onChange={handleFormOnChange}></textarea></div>
 
         <button className="form_button-addPet">Add pet</button>
-
-      </form>}
-      { savedPetId.length > 0 && 
+      </form>
+      }
+      { savedPetIdLocation.length > 0 && 
+      <div>
+        <div>
         <h1>Upload phtos for {petFormData.name}</h1>
+
+        <input type="file" onChange={onFileChange} />
+        <button onClick={onFileUpload} >Add Photo</button>
+        <br/>
+        <button onClick={onFinishAddingPet} >Finish Adding Pet</button>
+        </div>
+        <div>
+          {uploadedPhotos && uploadedPhotos.map(photo =><img src={`http://localhost:3000/api/pets/photo/${photo}`} />)}
+        </div>
+      </div>
+
       }
     </div>
   )
