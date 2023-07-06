@@ -41,4 +41,8 @@ public class PhotoService {
         }
         return photo.getOriginalFilename();
     }
+
+    public byte[] getPhoto(String fileName) throws Exception{
+        return Files.readAllBytes(Path.of(PHOTO_PATH + fileName));
+    }
 }

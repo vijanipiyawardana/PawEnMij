@@ -2,10 +2,12 @@ package com.vijani.pawenmij.controller;
 
 import com.vijani.pawenmij.service.PhotoService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Files;
 import java.util.UUID;
 
 @RestController
@@ -25,5 +27,8 @@ public class PhotoController {
         return ResponseEntity.ok().build();
     }
 
-
+    @GetMapping(value = "/photo/{fileName}", produces = MediaType.IMAGE_JPEG_VALUE)
+    public ResponseEntity<byte[]> getPhoto(@PathVariable String fileName) throws Exception{
+        return ResponseEntity.ok(service.getPhoto(fileName));
+    }
 }

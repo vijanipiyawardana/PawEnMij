@@ -11,5 +11,6 @@ public record PetRequestDto(String type,
                             Boolean vaccinated,
                             Boolean chipped,
                             Boolean neutered,
+                            String description,
                             UUID ownerId) {
 }

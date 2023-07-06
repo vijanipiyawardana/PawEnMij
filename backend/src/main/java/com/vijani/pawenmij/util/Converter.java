@@ -36,6 +36,7 @@ public class Converter {
                 dto.vaccinated(),
                 dto.chipped(),
                 dto.neutered(),
+                dto.description(),
                 owner.get()
         );
     }
@@ -76,6 +77,7 @@ public class Converter {
                 pet.getVaccinated(),
                 pet.getChipped(),
                 pet.getNeutered(),
+                pet.getDescription(),
                 pet.getOwner().getId(),
                 pet.getOwner().getName(),
                 pet.getOwner().getEmail(),

@@ -42,6 +42,9 @@ public class Pet {
     @Column(name = "neutered")
     private Boolean neutered = false;
 
+    @Column(name = "description", length = 1000)
+    private String description;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "owner_id")
     private Owner owner;
@@ -49,7 +52,7 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(String type, String breed, String gender, String status, String name, Double age, Boolean vaccinated, Boolean chipped, Boolean neutered, Owner owner) {
+    public Pet(String type, String breed, String gender, String status, String name, Double age, Boolean vaccinated, Boolean chipped, Boolean neutered, String description, Owner owner) {
         this.type = type;
         this.breed = breed;
         this.gender = gender;
@@ -59,6 +62,7 @@ public class Pet {
         this.vaccinated = vaccinated;
         this.chipped = chipped;
         this.neutered = neutered;
+        this.description = description;
         this.owner = owner;
     }
 
@@ -140,6 +144,14 @@ public class Pet {
 
     public void setNeutered(Boolean neutered) {
         this.neutered = neutered;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Owner getOwner() {
