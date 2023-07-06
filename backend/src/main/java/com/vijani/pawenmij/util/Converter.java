@@ -4,10 +4,11 @@ import com.vijani.pawenmij.dto.PetRequestDto;
 import com.vijani.pawenmij.dto.PetResponseDto;
 import com.vijani.pawenmij.model.Owner;
 import com.vijani.pawenmij.model.Pet;
+import com.vijani.pawenmij.model.Photo;
 import com.vijani.pawenmij.repository.OwnerRepository;
+import com.vijani.pawenmij.repository.PhotoRepository;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,9 +16,11 @@ import java.util.Optional;
 public class Converter {
 
     private OwnerRepository ownerRepository;
+    private PhotoRepository photoRepository;
 
-    public Converter(OwnerRepository ownerRepository) {
+    public Converter(OwnerRepository ownerRepository, PhotoRepository photoRepository) {
         this.ownerRepository = ownerRepository;
+        this.photoRepository = photoRepository;
     }
 
     public Pet fromPetRequestDto(PetRequestDto dto) {
@@ -43,6 +46,25 @@ public class Converter {
     }
 
     public PetResponseDto toPetResponseDto(Pet pet) {
+
+        String coverPhoto = "";
+
+        List<Photo> allPhotos = photoRepository.findByPetId(pet.getId());
+        if (allPhotos.size() > 0) {
+            Optional<String> coverPhotoOptional = allPhotos.stream()
+                    .filter(photo -> photo.getMain())
+                    .map(photo -> photo.getFileName())
+                    .findFirst();
+
+            if (coverPhotoOptional.isPresent()) {
+                coverPhoto = coverPhotoOptional.get();
+            }
+        }
+
+        List<String> allPhotoNames = allPhotos.stream()
+                .map(photo -> photo.getFileName())
+                .toList();
+
         return new PetResponseDto(
                 pet.getId(),
                 pet.getType(),
@@ -61,7 +83,9 @@ public class Converter {
                 pet.getOwner().getHouseNumber(),
                 pet.getOwner().getStreetName(),
                 pet.getOwner().getPostcode(),
-                pet.getOwner().getCity()
+                pet.getOwner().getCity(),
+                coverPhoto,
+                allPhotoNames
         );
     }
 

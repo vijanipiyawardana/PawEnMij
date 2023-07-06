@@ -11,4 +11,5 @@ public interface PhotoRepository extends JpaRepository<Photo, UUID> {
     Integer countByPetId(UUID id);
 
     List<Photo> findByPetId(UUID id);
+
 }

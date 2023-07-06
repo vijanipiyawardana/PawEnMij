@@ -1,5 +1,6 @@
 package com.vijani.pawenmij.dto;
 
+import java.util.List;
 import java.util.UUID;
 
 public record PetResponseDto(UUID id,
@@ -19,5 +20,7 @@ public record PetResponseDto(UUID id,
                              String ownerHouseNumber,
                              String ownerStreetName,
                              String ownerPostcode,
-                             String ownerCity) {
+                             String ownerCity,
+                             String coverPhoto,
+                             List<String> allPhotos) {
 }

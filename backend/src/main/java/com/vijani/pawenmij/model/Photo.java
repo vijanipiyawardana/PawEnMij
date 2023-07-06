@@ -25,6 +25,9 @@ public class Photo {
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
+    public Photo() {
+    }
+
     public Photo(String fileName, Boolean isMain, Pet pet) {
         this.fileName = fileName;
         this.isMain = isMain;

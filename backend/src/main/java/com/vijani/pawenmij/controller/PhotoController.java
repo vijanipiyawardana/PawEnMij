@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.net.URI;
 import java.util.UUID;
 
 @RestController
@@ -24,9 +23,7 @@ public class PhotoController {
         // TODO: return location
         service.addPhoto(petId, photo);
         return ResponseEntity.ok().build();
-        /*
-        * URI location = URI.create(req.getRequestURI() + "/" + petId.toString());
-        return ResponseEntity.created(location).build();
-        * */
     }
+
+
 }
