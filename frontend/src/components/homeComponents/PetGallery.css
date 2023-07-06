@@ -1,0 +1,10 @@
+.row {
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
