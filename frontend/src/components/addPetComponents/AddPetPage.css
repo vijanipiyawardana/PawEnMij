@@ -18,6 +18,7 @@
     color: white;
     width: 100%;
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .dropdown {
@@ -75,4 +76,15 @@ h4 {
     padding: 5px 10px;
     color: white;
     margin-top: 20px;
+}
+
+.alert {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.img-uploaded {
+    width: 400px;
+    height: 400px;
+    object-fit: fill;
 }

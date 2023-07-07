@@ -23,7 +23,7 @@ const PetGallery = (props: PetGalleryProps) => {
     } row count is ${rowCount}`
   );
 
-  function createRowsItems(): any[] {
+  const createRowsItems = (): any[] => {
     let list: any[] = [];
     let count = 0;
     for (let i = 0; i < rowCount; i++) {
@@ -32,7 +32,8 @@ const PetGallery = (props: PetGalleryProps) => {
     }
     return list;
   }
-  function createItems(i: number): any[] {
+
+  const createItems = (i: number): any[] => {
     let itemList: any[] = [];
     for (let j = 0; j < 3; j++) {
       let currentCell = i * 3 + j;
