@@ -11,6 +11,7 @@ type PetGalleryProps = {
 const PetGallery = (props: PetGalleryProps) => {
   let rowCount = 0;
 
+  // makes the row count considering the number of cases
   if (props.petInfo.length % 3 == 0) {
     rowCount = props.petInfo.length / 3;
   } else {
@@ -23,6 +24,7 @@ const PetGallery = (props: PetGalleryProps) => {
     } row count is ${rowCount}`
   );
 
+  // create rows
   const createRowsItems = (): any[] => {
     let list: any[] = [];
     let count = 0;
@@ -33,6 +35,7 @@ const PetGallery = (props: PetGalleryProps) => {
     return list;
   }
 
+  // add cases to rows
   const createItems = (i: number): any[] => {
     let itemList: any[] = [];
     for (let j = 0; j < 3; j++) {

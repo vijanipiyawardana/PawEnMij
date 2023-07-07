@@ -30,11 +30,7 @@ const ViewPetPage = () => {
           {pet.allPhotos &&
             pet.allPhotos.map((photoName) => (
               <Carousel.Item>
-                <img
-                  className="d-block w-100 carousel-img"
-                  src={`http://localhost:3000/api/pets/photo/${photoName}`}
-                  alt="First slide"
-                />
+                <img className="d-block w-100 carousel-img" src={`http://localhost:3000/api/pets/photo/${photoName}`} alt="First slide" />
               </Carousel.Item>
             ))}
         </Carousel>

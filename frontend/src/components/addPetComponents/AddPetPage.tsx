@@ -40,7 +40,6 @@ const AddPetPage = () => {
 
   const handleFormOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("clicked save");
     try {
       // for now, hardcoding the petOwner, later remove
       petFormData.ownerId = "2cf54efe-1bd0-11ee-be56-0242ac120002";
@@ -60,19 +59,7 @@ const AddPetPage = () => {
   };
 
   const validateForm = () => {
-    /*
-    type: string;
-  breed: string;
-  age: number;
-  name: string;
-  gender: string;
-  vaccinated: boolean;
-  chipped: boolean;
-  neutered: boolean;
-  description: string;
-  ownerId: string;
-  status: string;
-    */
+  
     if (!petFormData.type) {
       setErrorMessage("Please select a type");
       return false;
@@ -163,11 +150,12 @@ const AddPetPage = () => {
       return;
     }
 
+    // Create empty form and add the photo to that form, photo has to be uploaded as multipart/form-data
     const photoFormData = new FormData();
     photoFormData.append("photo", photo);
 
-    axios
-      .post(`http://localhost:3000${savedPetIdLocation}/photo`, photoFormData, {
+    axios.post(`http://localhost:3000${savedPetIdLocation}/photo`, photoFormData, {
+        // set the content-type as multipart/form-data
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -183,6 +171,7 @@ const AddPetPage = () => {
     navigator("/");
   };
 
+  // to retrieve the uploaded photo, only called if the photo count is changed, otherwise it will be an infinite loop
   useEffect(() => {
     if (uploadedPhotoCount > 0) {
       axios
@@ -196,6 +185,7 @@ const AddPetPage = () => {
     <div className="border border-white mx-4 my-4 px-4 py-4">
       <h2 className="text-center title-text">Add new pet</h2>
 
+      {/* Add Pet Info form */}
       {savedPetIdLocation.length == 0 && (
         <form id="addNewPetForm" className="form" onSubmit={handleFormOnSubmit}>
           <div className="mb-3">
@@ -315,6 +305,10 @@ const AddPetPage = () => {
           <button className="form_button-addPet">Next</button>
         </form>
       )}
+
+
+
+      {/* Upload photo form */}
       {savedPetIdLocation.length > 0 && (
         <div>
           <div>
@@ -329,6 +323,8 @@ const AddPetPage = () => {
               Finish Adding Pet
             </button>
           </div>
+
+          {/* displays the uploaded photos */}
           <div>
             {uploadedPhotos &&
               uploadedPhotos.map((photo) => (
@@ -336,6 +332,7 @@ const AddPetPage = () => {
                 className="img-thumbnail img-uploaded"/>
               ))}
           </div>
+
         </div>
       )}
     </div>
