@@ -37,3 +37,13 @@
     object-fit: scale-down; /* or 'contain' if you want stretch instead of crop */
   }
   
+  .btn-brown {
+    border: none;
+      background-color: #CD7F32;
+      border-radius: 4px;
+      padding: 5px 10px;
+      color: white;
+      width: 25%;
+      margin-top: 20px;
+      margin-bottom: 50px;
+  }

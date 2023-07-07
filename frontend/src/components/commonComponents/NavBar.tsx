@@ -1,3 +1,4 @@
+import PawLogo from '../../assets/images/paw_logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './NavBar.css'
@@ -11,8 +12,10 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link active" aria-current="page" href="/"> Home </a>
-            <a className="nav-link" href="/addPet"> Add </a>
+            <img src={PawLogo} className="navbar-logo"></img>
+            <a className="nav-link active navbar-text" aria-current="page" href="/"> Home </a>
+            <img src={PawLogo} className="navbar-logo"></img>
+            <a className="nav-link navbar-text" href="/addPet"> Add </a>
           </div>
         </div>
       </div>

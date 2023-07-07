@@ -99,7 +99,7 @@ const ViewPetPage = () => {
         </Table>
         <h3 className="text-item">More about {pet.name} 😉 </h3>
         <p className="text-item">{pet.description}</p>
-        <button className="btn btn-primary btn-lg"> Request to Adopt </button>
+        <button className="btn btn-brown btn-lg"> Request to Adopt </button>
       </div>
     </>
   );
