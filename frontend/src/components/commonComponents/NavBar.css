@@ -1,5 +1,10 @@
 .navbar {
-    width: 100vw;
-    position: fixed;
-    top: 0px;
+    
 }
+
+.container-fluid {
+    background-color: #DAA06D
+}
+
+
+

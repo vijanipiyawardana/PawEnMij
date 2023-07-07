@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import './NavBar.css'
 
 const NavBar = () => {
   return (
@@ -11,7 +12,6 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <a className="nav-link active" aria-current="page" href="/"> Home </a>
-            <a className="nav-link" href="/viewPet"> View </a>
             <a className="nav-link" href="/addPet"> Add </a>
           </div>
         </div>

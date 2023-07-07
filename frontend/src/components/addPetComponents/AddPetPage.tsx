@@ -4,6 +4,8 @@ import Dropdown from "./Dropdown";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import './AddPetPage.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 type PetFormDataType = {
   type: string;

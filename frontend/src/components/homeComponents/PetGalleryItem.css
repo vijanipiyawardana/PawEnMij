@@ -1,0 +1,18 @@
+.card-body-button {
+    text-align: right;
+  }
+  
+  .badge-light {
+    color: black;
+  }
+  
+  .badge-green {
+    color: #fff;
+    background-color: #70a166;
+    float: right;
+  }
+  
+  .card-label {
+    font-weight: bolder;
+  }
+  

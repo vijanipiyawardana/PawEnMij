@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import PetGallery from "./PetGallery"
 import axios from 'axios';
+import './HomePage.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 export type PetInfoType = {
   id: string;
@@ -23,6 +26,7 @@ export type PetInfoType = {
   ownerCity: string;
   coverPhoto: string;
   allPhotos: string[];
+  description: string;
 }
 
 const homePage = () => { 
@@ -38,7 +42,10 @@ const homePage = () => {
 
   return (
     <div>
-      <h1>Home page</h1>
+      <div className="jumbotron welcome-message">
+        <h1 className="display-6">Welcome to Paw en Mij</h1>
+        <p className="lead">"Adopting a pet is not just about giving them a home, but about finding a forever companion who will fill your life with unconditional love and joy."</p>
+      </div>
       <PetGallery petInfo={petList}/> 
     </div>
   )
