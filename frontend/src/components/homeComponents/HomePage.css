@@ -1,3 +1,16 @@
 .welcome-message {
     margin: 40px;
 }
+
+.intro-title {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #A52A2A;
+    margin-bottom: 30px;
+}
+
+.intro-desc {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #A52A2A;
+    margin-bottom: 30px;
+    font-size: large;
+}

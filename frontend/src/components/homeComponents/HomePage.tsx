@@ -43,8 +43,8 @@ const homePage = () => {
   return (
     <div>
       <div className="jumbotron welcome-message">
-        <h1 className="display-6">Welcome to Paw en Mij</h1>
-        <p className="lead">"Adopting a pet is not just about giving them a home, but about finding a forever companion who will fill your life with unconditional love and joy."</p>
+        <h1 className="display-6 intro-title">Welcome to Paw en Mij</h1>
+        <p className="lead intro-desc">"Adopting a pet is not just about giving them a home, but about finding a forever companion who will fill your life with unconditional love and joy."</p>
       </div>
       <PetGallery petInfo={petList}/> 
     </div>

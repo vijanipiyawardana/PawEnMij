@@ -11,17 +11,11 @@ const PetGalleryItem = (props: PetGalleryItemProps) => {
   return (
     <div className="col-sm-4">
       <div className="gallery-item card ">
-        <img
-          src={`http://localhost:3000/api/pets/photo/${props.pet.coverPhoto}`}
-          className="card-img-top"
-          alt=".aa.."
-        />
+        <img src={`http://localhost:3000/api/pets/photo/${props.pet.coverPhoto}`} className="card-img-top" alt=".aa.."/>
         <div className="card-body">
           <h5 className="card-title">
             {props.pet.name}
-            <span className="badge badge-pill badge-green">
-              {props.pet.status}
-            </span>
+            <span className="badge badge-pill badge-green">{props.pet.status}</span>
           </h5>
 
           <ul className="list-group list-group-flush">
@@ -40,9 +34,7 @@ const PetGalleryItem = (props: PetGalleryItemProps) => {
             </li>
           </ul>
           <div className="card-body card-body-button">
-            <a href={`/viewPet/${props.pet.id}`} className="btn btn-primary">
-              More Info
-            </a>
+            <a href={`/viewPet/${props.pet.id}`} className="btn btn-brown">More Info</a>
           </div>
         </div>
       </div>
