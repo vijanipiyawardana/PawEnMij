@@ -3,6 +3,7 @@ import CheckBox from "./CheckBox";
 import Dropdown from "./Dropdown";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import './AddPetPage.css'
 
 type PetFormDataType = {
   type: string;
@@ -109,8 +110,8 @@ const AddPetPage = () => {
   }, [uploadedPhotoCount]);
 
   return (
-    <div className="border border-dark mx-4 my-4 px-4 py-4">
-      <h2 className="text-center">Add new pet</h2>
+    <div className="border border-white mx-4 my-4 px-4 py-4">
+      <h2 className="text-center title-text">Add new pet</h2>
       
       { savedPetIdLocation.length == 0 && 
       <form id="addNewPetForm" className="form" onSubmit={handleFormOnSubmit}>
@@ -119,36 +120,40 @@ const AddPetPage = () => {
         <div><Dropdown id="petTypeInput" items={["Dog", "Cat"]} onChange={handleFormOnChange}/></div>
 
         <div><label htmlFor="petBreedInput" className="input_label">Breed</label></div>
-        <div><input className="form_input-breed" id="petBreedInput" type="text" onChange={handleFormOnChange} /></div>
+        <div><input className="form_input rounded" id="petBreedInput" type="text" onChange={handleFormOnChange} /></div>
 
         <div><label htmlFor="petAgeInput" className="input_label">Age</label></div>
-        <div><input className="form_input-age" id="petAgeInput" type="number" onChange={handleFormOnChange} /></div>
+        <div><input className="form_input rounded" id="petAgeInput" type="text" onChange={handleFormOnChange} /></div>
 
         <div><label htmlFor="petNameInput" className="input_label">Name</label></div>
-        <div><input className="form_input-name" id="petNameInput" type="text" onChange={handleFormOnChange}/></div>
+        <div><input className="form_input rounded" id="petNameInput" type="text" onChange={handleFormOnChange}/></div>
 
         <div><label htmlFor="petGenderInput" className="input_label">Gender</label></div>
         <div><Dropdown id="petGenderInput" items={["Male", "Female"]} onChange={handleFormOnChange} /></div>
 
-        <div><CheckBox id="petIsVaccinated" label="Vaccinated" onChange={handleFormOnChange} /></div>
-        <div><CheckBox id="petIsChipped" label="Chipped" onChange={handleFormOnChange} /></div>
-        <div><CheckBox id="petIsNeutered" label="Neutered" onChange={handleFormOnChange} /></div>
+        <div className="container">
+          <div className="checkbox-row">
+            <div className="col-md-4"><CheckBox id="petIsVaccinated" label="Vaccinated" onChange={handleFormOnChange} /></div>
+            <div className="col-md-4"><CheckBox id="petIsChipped" label="Chipped" onChange={handleFormOnChange} /></div>
+            <div className="col-md-4"><CheckBox id="petIsNeutered" label="Neutered" onChange={handleFormOnChange} /></div>
+          </div>
+        </div>
 
-        <div><label htmlFor="petDescInput" className="input_label">Description</label></div>
-        <div><textarea className="form_input-desc" id="petDescInput" onChange={handleFormOnChange}></textarea></div>
+        <div><label htmlFor="petDescInput" className="input_label input-description">Description</label></div>
+        <div><textarea className="form_input-textarea rounded" id="petDescInput" onChange={handleFormOnChange}></textarea></div>
 
-        <button className="form_button-addPet">Add pet</button>
+        <button className="form_button-addPet">Next</button>
       </form>
       }
       { savedPetIdLocation.length > 0 && 
       <div>
         <div>
-        <h1>Upload phtos for {petFormData.name}</h1>
+        <h4 className="title-text">Upload photos for {petFormData.name}</h4>
 
         <input type="file" onChange={onFileChange} />
-        <button onClick={onFileUpload} >Add Photo</button>
+        <button className="form_button-photo-upload" onClick={onFileUpload} >Add Photo</button>
         <br/>
-        <button onClick={onFinishAddingPet} >Finish Adding Pet</button>
+        <button className="form_button-addPet" onClick={onFinishAddingPet} >Finish Adding Pet</button>
         </div>
         <div>
           {uploadedPhotos && uploadedPhotos.map(photo =><img src={`http://localhost:3000/api/pets/photo/${photo}`} />)}
