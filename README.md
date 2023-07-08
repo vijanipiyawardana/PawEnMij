@@ -11,18 +11,18 @@ User-friendly Java Full Stack Web Application that connects potential pet adopte
 ## Tools and Technologies used 
 
 ## Frontend 
-**React** Router and Hooks
-**Typescript** 
-**Vite** to generate the React project template 
-**Axios** for calling backend
-**HTML**, **CSS** and **Bootstrap**
-**Visual Studio Code**
+- **React** Router and Hooks
+- **Typescript** 
+- **Vite** to generate the React project template 
+- **Axios** for calling backend
+- **HTML**, **CSS** and **Bootstrap**
+- **Visual Studio Code**
 
 
 ## Backend  
-**Java** 
-**Spring boot**
-**REST**
-**PostgresSQL**
-**Spring Data JPA**
+- **Java** 
+- **Spring boot**
+- **REST**
+- **PostgresSQL**
+- **Spring Data JPA**
 
