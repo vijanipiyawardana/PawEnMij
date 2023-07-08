@@ -35,7 +35,7 @@ PawEnMij is a user-friendly **Java Full Stack Web Application** that connects po
 
 ### Setting up the database
 
--  inside **backend** folder
+-  inside [`backend`](backend) project
 ```docker compose up```
 
 ### Run the backend
