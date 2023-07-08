@@ -87,4 +87,4 @@ The application has following API endpoints.
 
 ## View application
 
-[`Watch the screencast of running application`](https://youtu.be/jWOZ_e7-ayE)
+[`Watch the screencast of running application`](https://youtu.be/jWOZ_e7-ayE){:target="_blank" rel="noopener"}
