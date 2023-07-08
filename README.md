@@ -55,3 +55,11 @@ mvn spring-boot:run
 ```
 
 ### Run the frontend
+- To install all the dependencies, inside [`frontend`](frontend) project
+```shell
+npm install
+```
+- Run the [`frontend`](frontend) application using
+```shell 
+npm run dev
+```
