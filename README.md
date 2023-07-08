@@ -1,6 +1,8 @@
 ![alt text](https://github.com/vijanipiyawardana/PawEnMij/blob/main/pawenmij-logo.png?raw=true)
 
+<p align="center">
 _Find love and bring home a furry friend through pet adoption_
+</p>
 
 # Welcome to PawEnMij
 
