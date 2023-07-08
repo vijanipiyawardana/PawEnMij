@@ -40,7 +40,7 @@ PawEnMij is a user-friendly **Java Full Stack Web Application** that connects po
 
 ### Run the backend
 - Open backend project from any IDE
-- Run the main class: **com.vijani.pawenmij.PawenmijApplication**
+- Run the main class: @@com.vijani.pawenmij.PawenmijApplication@@
 or
 - Run the project using maven **mvn spring-boot:run**
 
