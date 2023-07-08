@@ -36,15 +36,17 @@ PawEnMij is a user-friendly **Java Full Stack Web Application** that connects po
 ### Setting up the database
 
 -  inside [`backend`](backend) project
-```docker compose up```
+```shell
+docker compose up
+```
 
 ### Run the backend
-- Open backend project from any IDE
+- Open [`backend`](backend) project from any IDE
 Run the main class [`com.vijani.pawenmij.PawenmijApplication`](backend/src/main/java/com/vijani/pawenmij/PawenmijApplication.java)
 
 or  
 
-- Run the **backend** project using maven 
+- Run the [`backend`](backend) project using maven 
 ```shell 
 mvn spring-boot:run
 ```
