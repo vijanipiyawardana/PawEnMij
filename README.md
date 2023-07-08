@@ -22,13 +22,13 @@ PawEnMij is a user-friendly **Java Full Stack Web Application** that connects po
 
 
 ### Backend  
-- **Java** 
-- **Spring boot**
+- **Java 17** 
+- **Spring boot 3**
 - **REST**
 - **PostgresSQL**
 - **Spring Data JPA**
 - **IntelliJ IDEA**
-- **maven** for dependency management
+- **Maven** for dependency management
 - **Docker** for running the database
 
 ## Run the application
