@@ -84,3 +84,7 @@ The application has following API endpoints.
 ## Database design
 
 ![alt text](https://github.com/vijanipiyawardana/PawEnMij/blob/main/pawenmij-erd.png?raw=true)
+
+## View application
+
+[`Watch the screencast of running application`](https://youtu.be/jWOZ_e7-ayE)
