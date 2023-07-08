@@ -63,3 +63,14 @@ npm install
 ```shell 
 npm run dev
 ```
+
+## API
+
+The application has following API endpoints.
+
+![alt text](https://github.com/vijanipiyawardana/PawEnMij/blob/main/pawenmij-api.png?raw=true)
+
+
+## Database design
+
+![alt text](https://github.com/vijanipiyawardana/PawEnMij/blob/main/pawenmij-erd.png?raw=true)
