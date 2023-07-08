@@ -64,6 +64,16 @@ npm install
 npm run dev
 ```
 
+## Use cases
+
+- Pet adaptor
+    - View available pets
+    - View more infomation of a pet
+    - View shelter owner details
+- Shelter owner
+    - Add a new pet
+    - Add photos to the added pet
+
 ## API
 
 The application has following API endpoints.
