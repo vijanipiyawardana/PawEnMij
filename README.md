@@ -87,4 +87,4 @@ The application has following API endpoints.
 
 ## View application
 
-[`Watch the screencast of running application`](https://youtu.be/jWOZ_e7-ayE){:target="_blank" rel="noopener"}
+Watch the screencast of running application in <a href="https://youtu.be/jWOZ_e7-ayE" target="_blank">Youtube</a>
