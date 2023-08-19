@@ -37,9 +37,9 @@ PawEnMij is a user-friendly **Java Full Stack Web Application** that connects po
 
 -  To start the docker container, inside [`backend`](backend) project 
 ```shell
-docker compose up
+docker-compose up -d
 ```
-- Open database management tool **Adminer** in browser
+- Open database management tool **Adminer** in browser, localhost:1234
 - Login to the database using credentials given in [`psql.env`](backend/containerConfig/psql.env)
 - Add dummy data to the database using queries given in [`initDb.sql`](backend/containerConfig/initDb.sql)
 
