@@ -12,10 +12,16 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
+
             <img src={PawLogo} className="navbar-logo"></img>
             <a className="nav-link active navbar-text" aria-current="page" href="/"> Home </a>
+
             <img src={PawLogo} className="navbar-logo"></img>
             <a className="nav-link navbar-text" href="/addPet"> Add </a>
+
+            <img src={PawLogo} className="navbar-logo"></img>
+            <a className="nav-link navbar-text" href="/myPetListings"> My listings </a>
+            
           </div>
         </div>
       </div>

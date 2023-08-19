@@ -1,20 +1,20 @@
-.card-body-button {
+/* .card-body-button {
     text-align: right;
-  }
+} */
   
-  .badge-light {
+  /* .badge-light {
     color: black;
-  }
+  } */
   
-  .badge-green {
-    color: #fff;
-    background-color: #70a166;
-    float: right;
-  }
+.badge-green {
+  color: #fff;
+  background-color: #70a166;
+  float: right;
+}
   
-  .card-label {
-    font-weight: bolder;
-  }
+.card-label {
+  font-weight: bolder;
+}
   
 .card-img-top {
   width: 100%;
