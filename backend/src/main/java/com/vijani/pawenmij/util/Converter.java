@@ -1,5 +1,7 @@
 package com.vijani.pawenmij.util;
 
+import com.vijani.pawenmij.dto.MyPetResponseDto;
+import com.vijani.pawenmij.dto.OwnerResponseDto;
 import com.vijani.pawenmij.dto.PetRequestDto;
 import com.vijani.pawenmij.dto.PetResponseDto;
 import com.vijani.pawenmij.model.Owner;
@@ -91,5 +93,58 @@ public class Converter {
         );
     }
 
+    public MyPetResponseDto toMyPetResponseDto(Pet myPet) {
 
+        String coverPhoto = "";
+
+        List<Photo> allPhotos = photoRepository.findByPetId(myPet.getId());
+        if (allPhotos.size() > 0) {
+            Optional<String> coverPhotoOptional = allPhotos.stream()
+                    .filter(photo -> photo.getMain())
+                    .map(photo -> photo.getFileName())
+                    .findFirst();
+
+            if (coverPhotoOptional.isPresent()) {
+                coverPhoto = coverPhotoOptional.get();
+            }
+        }
+
+        List<String> allPhotoNames = allPhotos.stream()
+                .map(photo -> photo.getFileName())
+                .toList();
+
+        return new MyPetResponseDto(
+                myPet.getId(),
+                myPet.getType(),
+                myPet.getBreed(),
+                myPet.getGender(),
+                myPet.getStatus(),
+                myPet.getName(),
+                myPet.getAge(),
+                myPet.getVaccinated(),
+                myPet.getChipped(),
+                myPet.getNeutered(),
+                myPet.getDescription(),
+                coverPhoto,
+                allPhotoNames
+        );
+    }
+
+    public List<MyPetResponseDto> toMyPetResponseDtoList(List<Pet> myPets) {
+        List<MyPetResponseDto> myPetResponses = myPets.stream().map(myPet -> toMyPetResponseDto(myPet)).toList();
+        return myPetResponses;
+    }
+
+    public OwnerResponseDto toOwnerResponseDto(Owner owner) {
+        return new OwnerResponseDto(
+                owner.getId(),
+                owner.getName(),
+                owner.getEmail(),
+                owner.getContact(),
+                owner.getHouseNumber(),
+                owner.getStreetName(),
+                owner.getPostcode(),
+                owner.getCity()
+        );
+    }
 }

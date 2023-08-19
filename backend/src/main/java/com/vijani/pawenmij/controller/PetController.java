@@ -38,5 +38,4 @@ public class PetController {
         return ResponseEntity.ok(service.getPetById(id));
     }
 
-
 }
