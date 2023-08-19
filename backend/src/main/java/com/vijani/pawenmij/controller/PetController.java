@@ -37,4 +37,6 @@ public class PetController {
     public ResponseEntity<PetResponseDto> getPetById(@PathVariable("id") UUID id) {
         return ResponseEntity.ok(service.getPetById(id));
     }
+
+
 }

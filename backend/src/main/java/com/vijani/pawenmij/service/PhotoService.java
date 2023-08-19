@@ -15,7 +15,7 @@ import java.util.UUID;
 @Service
 public class PhotoService {
 
-    private static final String PHOTO_PATH = "/tmp/pawenmij/photos/";
+    private static final String PHOTO_PATH = "/home/vijani/Documents/projects/data/pawenmij/photos/";
 
     private PhotoRepository photoRepository;
     private PetRepository petRepository;
@@ -28,13 +28,16 @@ public class PhotoService {
     public String addPhoto(UUID petId, MultipartFile photo) {
         try {
 
-            Files.write(Path.of(PHOTO_PATH + photo.getOriginalFilename()), photo.getBytes());
+            int photoCount = photoRepository.countByPetId(petId);
+            String fileName = petId + "_" + (photoCount + 1);
+
+            Files.write(Path.of(PHOTO_PATH + fileName), photo.getBytes());
 
             Optional<Pet> pet = petRepository.findById(petId);
             Integer count = photoRepository.countByPetId(petId);
             Boolean mainPhoto = count == 0;
 
-            photoRepository.save(new Photo(photo.getOriginalFilename(), mainPhoto, pet.get()));
+            photoRepository.save(new Photo(fileName, mainPhoto, pet.get()));
 
         } catch (Exception ex) {
             throw new RuntimeException(ex.getMessage());

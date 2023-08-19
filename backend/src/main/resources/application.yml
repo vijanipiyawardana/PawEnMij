@@ -9,7 +9,7 @@ spring:
   jpa:
     defer-datasource-initialization: true
     hibernate:
-      ddl-auto: none # none, create ...
+      ddl-auto: update # none, create, update ...
   sql:
     init:
       platform: postgresql
