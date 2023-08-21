@@ -5,6 +5,7 @@ import HomePage from './components/homeComponents/HomePage'
 import { Routes, Route, useParams } from 'react-router-dom';
 import ViewPetPage from "./components/viewPetComponents/ViewPetPage";
 import MyPetListings from "./components/myPetListingComponents/MyPetListings";
+import EditMyPet from "./components/myPetListingComponents/EditMyPet";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/addPet" element={<AddPetPage/>}></Route>
         <Route path="/viewPet/:id" element={<ViewPetPage />}></Route>
         <Route path="/myPetListings" element={<MyPetListings />}></Route>
+        <Route path="/editMyPet" element={<EditMyPet />}></Route>
       </Routes>
     </>
   )

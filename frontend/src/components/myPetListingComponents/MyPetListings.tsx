@@ -24,7 +24,8 @@ const MyPetListings = () => {
 
   const params = useParams();
   // const ownerId = params["id"];
-  const ownerId = "2cf54b5c-1bd0-11ee-be56-0242ac120002";
+  // const ownerId = "2cf54cb0-1bd0-11ee-be56-0242ac120002";
+  const ownerId = "2cf54efe-1bd0-11ee-be56-0242ac120002";
   const [myPetList, setMyPetList] = useState<MyPetInfoType[]>([]);
   const [count, setCount] = useState(0);
 
@@ -34,6 +35,10 @@ const MyPetListings = () => {
       .then(data => setMyPetList(data));
   }, [count]);
 
+  const onMyPetRemove = (id: string) => {
+    setMyPetList(myPetList.filter(pet => pet.id !== id));
+  }
+
   return (
 
     <section className = 'my-listings'>
@@ -41,7 +46,7 @@ const MyPetListings = () => {
       <Row xs={1} sm={2} md={3} lg={4}>
         {myPetList && myPetList.map((myPet) => (
           <Col key={myPet.id}>
-            <MyPetItem myPet={myPet}/>
+            <MyPetItem myPet={myPet} onMyPetRemove={onMyPetRemove} />
           </Col>
         ))}
       </Row>
