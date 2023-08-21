@@ -38,4 +38,10 @@ public class PetController {
         return ResponseEntity.ok(service.getPetById(id));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePet(@PathVariable("id") UUID id) {
+        service.deletePet(id);
+        return ResponseEntity.ok("Pet deleted successfully");
+    }
+
 }

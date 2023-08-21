@@ -48,4 +48,8 @@ public class PhotoService {
     public byte[] getPhoto(String fileName) throws Exception{
         return Files.readAllBytes(Path.of(PHOTO_PATH + fileName));
     }
+
+    public void deletePhotoFromFolder(UUID petId) {
+
+    }
 }
