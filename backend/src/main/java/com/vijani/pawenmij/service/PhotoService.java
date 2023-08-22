@@ -7,8 +7,11 @@ import com.vijani.pawenmij.repository.PhotoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -50,6 +53,20 @@ public class PhotoService {
     }
 
     public void deletePhotoFromFolder(UUID petId) {
-
+        Path directory = Paths.get(PHOTO_PATH);
+        if (!Files.exists(directory) || !Files.isDirectory(directory)) {
+            System.out.println("Invalid directory path.");
+            return;
+        }
+        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(directory)) {
+            for (Path file : directoryStream) {
+                if (Files.isRegularFile(file) && file.getFileName().toString().contains(petId.toString())) {
+                    Files.delete(file);
+                    System.out.println("Deleted: " + file);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

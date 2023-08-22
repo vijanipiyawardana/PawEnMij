@@ -19,10 +19,14 @@ public class PetService {
     private PetRepository petRepository;
     private PhotoRepository photoRepository;
 
-    public PetService(Converter converter, PetRepository petRepository, PhotoRepository photoRepository) {
+    private PhotoService photoService;
+
+    public PetService(Converter converter, PetRepository petRepository,
+                      PhotoRepository photoRepository, PhotoService photoService) {
         this.converter = converter;
         this.petRepository = petRepository;
         this.photoRepository = photoRepository;
+        this.photoService = photoService;
     }
 
     public UUID addPet(PetRequestDto dto) {
@@ -46,6 +50,7 @@ public class PetService {
             photoRepository.findByPetId(id).forEach(photo -> {
                 photoRepository.delete(photo);
             });
+            photoService.deletePhotoFromFolder(id);
             petRepository.delete(pet);
         });
     }
