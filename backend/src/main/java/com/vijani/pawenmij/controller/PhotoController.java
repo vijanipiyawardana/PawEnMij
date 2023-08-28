@@ -28,7 +28,13 @@ public class PhotoController {
     }
 
     @GetMapping(value = "/photo/{fileName}", produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<byte[]> getPhoto(@PathVariable String fileName) throws Exception{
+    public ResponseEntity<byte[]> getPhoto(@PathVariable String fileName) throws Exception {
         return ResponseEntity.ok(service.getPhoto(fileName));
+    }
+
+    @DeleteMapping("/photo/{fileName}")
+    public ResponseEntity<String> deletePhoto(@PathVariable String fileName) {
+        service.deletePhoto(fileName);
+        return ResponseEntity.ok("Photo deleted successfully");
     }
 }

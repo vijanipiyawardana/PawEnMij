@@ -12,4 +12,6 @@ public interface PhotoRepository extends JpaRepository<Photo, UUID> {
 
     List<Photo> findByPetId(UUID id);
 
+    Photo findByFileName(String fileName);
+
 }

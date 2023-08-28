@@ -52,7 +52,13 @@ public class PhotoService {
         return Files.readAllBytes(Path.of(PHOTO_PATH + fileName));
     }
 
-    public void deletePhotoFromFolder(UUID petId) {
+    public void deletePhoto(String fileName) {
+        Photo photo = photoRepository.findByFileName(fileName);
+        photoRepository.delete(photo);
+        deletePhotoFromFolder(fileName);
+    }
+
+    public void deletePhotoFromFolder(String namePart) {
         Path directory = Paths.get(PHOTO_PATH);
         if (!Files.exists(directory) || !Files.isDirectory(directory)) {
             System.out.println("Invalid directory path.");
@@ -60,7 +66,7 @@ public class PhotoService {
         }
         try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(directory)) {
             for (Path file : directoryStream) {
-                if (Files.isRegularFile(file) && file.getFileName().toString().contains(petId.toString())) {
+                if (Files.isRegularFile(file) && file.getFileName().toString().contains(namePart)) {
                     Files.delete(file);
                     System.out.println("Deleted: " + file);
                 }

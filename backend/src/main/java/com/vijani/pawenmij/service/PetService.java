@@ -50,7 +50,7 @@ public class PetService {
             photoRepository.findByPetId(id).forEach(photo -> {
                 photoRepository.delete(photo);
             });
-            photoService.deletePhotoFromFolder(id);
+            photoService.deletePhotoFromFolder(id.toString());
             petRepository.delete(pet);
         });
     }
