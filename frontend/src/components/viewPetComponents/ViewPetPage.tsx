@@ -24,7 +24,7 @@ const ViewPetPage = () => {
   return (
     <>
       <div className="container">
-        <h1>🐾 This is {pet.name}</h1>
+        <h1>{pet.type === 'Dog' ? '🐕' : '😺'} This is {pet.name}</h1>
 
         <Carousel>
           {pet.allPhotos &&

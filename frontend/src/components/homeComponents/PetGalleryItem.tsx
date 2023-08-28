@@ -1,7 +1,5 @@
 import { PetInfoType } from "./HomePage";
 import "./PetGalleryItem.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
 
 type PetGalleryItemProps = {
   pet: PetInfoType;
@@ -9,7 +7,7 @@ type PetGalleryItemProps = {
 
 const PetGalleryItem = (props: PetGalleryItemProps) => {
   return (
-    <div className="col-sm-4">
+    <div className="col">
       <div className="gallery-item card ">
         <img src={`http://localhost:3000/api/pets/photo/${props.pet.coverPhoto}`} className="card-img-top" alt=".aa.."/>
         <div className="card-body">

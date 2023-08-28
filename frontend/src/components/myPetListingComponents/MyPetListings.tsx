@@ -43,7 +43,7 @@ const MyPetListings = () => {
 
     <section className = 'my-listings'>
       <Container>
-      <Row xs={1} sm={2} md={3} lg={4}>
+      <Row xs={1} sm={2} md={3} lg={3}>
         {myPetList && myPetList.map((myPet) => (
           <Col key={myPet.id}>
             <MyPetItem myPet={myPet} onMyPetRemove={onMyPetRemove} />

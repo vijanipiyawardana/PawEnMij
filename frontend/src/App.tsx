@@ -20,7 +20,7 @@ function App() {
         <Route path="/addPet" element={<AddPetPage/>}></Route>
         <Route path="/viewPet/:id" element={<ViewPetPage />}></Route>
         <Route path="/myPetListings" element={<MyPetListings />}></Route>
-        <Route path="/editMyPet" element={<EditMyPet />}></Route>
+        <Route path="/editMyPet/:id" element={<EditMyPet />}></Route>
       </Routes>
     </>
   )

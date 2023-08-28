@@ -1,36 +1,37 @@
 .container {
     margin-top: 50px;
-  }
-  .carousel {
-    /* margin-left: 10%;
-    margin-right: 10%; */
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
+}
+
+.carousel {
+  /* margin-left: 10%;
+  margin-right: 10%; */
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
   
-  .text-item {
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
+.text-item {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
   
-  .btn {
-    float: right;
-    margin-bottom: 100px;
-  }
+.btn {
+  float: right;
+  margin-bottom: 100px;
+}
   
-  .carousel-inner {
-    height: 0;
-    padding-bottom: 25%;
-    background-color: black;
-  }
+.carousel-inner {
+  height: 0;
+  padding-bottom: 25%;
+  background-color: black;
+}
   
-  .carousel-item {
-    position: absolute !important; /* Bootstrap is insistent */
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
+.carousel-item {
+  position: absolute !important; /* Bootstrap is insistent */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
   
   .carousel-item img {
     height: 100%; /* Bootstrap handles width already */

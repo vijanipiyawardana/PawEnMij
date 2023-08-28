@@ -1,5 +1,5 @@
-import { MyPetInfoType } from "./MyPetListings"
-import "./MyPetListing.css";
+import { MyPetInfoType } from "./MyPetListings";
+import "../homeComponents/PetGalleryItem.css";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { errorAlert } from '../commonComponents/helpers/ErrorHandler';
@@ -11,7 +11,6 @@ type MyPetItemProps = {
     myPet: MyPetInfoType;
     onMyPetRemove: (petId: string) => void;
 }
-
 
 const MyPetItem = (props: MyPetItemProps) => {
 
@@ -37,7 +36,7 @@ const MyPetItem = (props: MyPetItemProps) => {
 
     return (
         <div className='col'>
-            <div className="gallery-item card ">
+            <div className="gallery-item card">
                 <img src={`http://localhost:3000/api/pets/photo/${props.myPet.coverPhoto}`} className="card-img-top" alt=".aa.." />
                 <div className="card-body">
                     <h5 className="card-title">
