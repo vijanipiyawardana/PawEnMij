@@ -4,3 +4,11 @@
     object-fit: fill;
 }
 
+.photo-pane_upload {
+    cursor: pointer;
+}
+
+.image-upload>input {
+    display: none;
+}
+

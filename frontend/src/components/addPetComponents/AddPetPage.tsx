@@ -149,7 +149,6 @@ const AddPetPage = () => {
     if (!photo) {
       return;
     }
-
     // Create empty form and add the photo to that form, photo has to be uploaded as multipart/form-data
     const photoFormData = new FormData();
     photoFormData.append("photo", photo);

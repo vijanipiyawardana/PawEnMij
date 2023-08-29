@@ -7,6 +7,9 @@ import "./EditMyPet.css"
 import DeletePetPhotoModel from "./DeletePetPhotoModel";
 import { errorAlert } from '../commonComponents/helpers/ErrorHandler';
 import { errorMessages } from '../commonComponents/constants/Constants';
+import AddNewImage from '../../assets/images/addNew.png';
+import Tooltip from "react-bootstrap/Tooltip";
+import { OverlayTrigger } from "react-bootstrap";
 
 const EditMyPet = () => {
   const params = useParams();
@@ -14,6 +17,42 @@ const EditMyPet = () => {
   const [pet, setPet] = useState<PetInfoType>({} as PetInfoType);
   const [count, setCount] = useState(0);
   const [deleteShowModal, setDeleteShowModal] = useState(false);
+  const totalNumberOfPhotos = 4;
+  let numberOfBlanks = 0;
+  if (pet?.allPhotos) {
+    numberOfBlanks = totalNumberOfPhotos - pet.allPhotos.length;
+  }
+
+  const blankList: JSX.Element[] = [];
+
+  const addPhotoTooltip = (props:any) => (
+    <Tooltip {...props}>Add new photo</Tooltip>
+  );
+
+  const onFileChange = () => {
+    
+  }
+
+  const onFileUpload = () => {
+
+  }
+
+  for (let i = 0; i < numberOfBlanks; i++) {
+    blankList.push(
+      <>
+        <Col>
+        <div className="image-upload">
+        <label htmlFor="file-input">
+            <OverlayTrigger placement='bottom' overlay={addPhotoTooltip}>
+              <img className="photo-pane_photo photo-pane_upload" src={AddNewImage} onClick={onFileUpload}/>
+            </OverlayTrigger>
+        </label>
+            <input id="file-input" type="file" onChange={onFileChange}/>
+        </div>
+        </Col>
+      </>
+    )
+  }
 
   useEffect(() => {
     axios
@@ -24,11 +63,11 @@ const EditMyPet = () => {
 
   const handleDeletePhoto = (photoName: string) => {
     axios.delete(`http://localhost:3000/api/pets/photo/${photoName}`)
-    .then(_ => {
-      setCount(count + 1);
-      setDeleteShowModal(false);
-    })
-    .catch(err => errorAlert(errorMessages.cannotDelete, 'Cannot delete photo' + photoName, err));
+      .then(_ => {
+        setCount(count + 1);
+        setDeleteShowModal(false);
+      })
+      .catch(err => errorAlert(errorMessages.cannotDelete, 'Cannot delete photo' + photoName, err));
   }
 
   return (
@@ -45,9 +84,10 @@ const EditMyPet = () => {
               </Col>
 
               <DeletePetPhotoModel show={deleteShowModal} onClose={() => setDeleteShowModal(false)} onDelete={() => handleDeletePhoto(photoName)} />
+
             </>
-            ))}
-         
+          ))}
+          {blankList}
         </Row>
       </Container>
 
