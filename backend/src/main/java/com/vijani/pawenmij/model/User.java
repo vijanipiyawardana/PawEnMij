@@ -1,12 +1,27 @@
 package com.vijani.pawenmij.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "owner")
-public class Owner {
+@Table(name = "user")
+public class User implements UserDetails {
 
     @Id
     @Column(name = "id")
@@ -14,14 +29,11 @@ public class Owner {
     @GenericGenerator(name = "uuid-hibernate-generator", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
 
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "contact", nullable = false)
-    private String contact;
+    @Column(name = "last_name")
+    private String lastName;
 
     @Column(name = "houseNumber", nullable = false)
     private String houseNumber;
@@ -35,67 +47,46 @@ public class Owner {
     @Column(name = "city", nullable = false)
     private String city;
 
-    public UUID getId() {
-        return id;
+    @Column(name = "contact", nullable = false)
+    private String contact;
+
+    @Column(name = "email", unique = true)
+    private String email;
+
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
+    @Override
+    public String getUsername() {
+        // email in our case
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
-    public String getContact() {
-        return contact;
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
     }
 
-    public String getHouseNumber() {
-        return houseNumber;
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
-    public void setHouseNumber(String houseNumber) {
-        this.houseNumber = houseNumber;
-    }
-
-    public String getStreetName() {
-        return streetName;
-    }
-
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
 }
