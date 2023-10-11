@@ -1,7 +1,7 @@
 package com.vijani.pawenmij.controller;
 
 import com.vijani.pawenmij.dto.MyPetResponseDto;
-import com.vijani.pawenmij.service.OwnerService;
+import com.vijani.pawenmij.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/owner")
-public class OwnerController {
+@RequestMapping("/api/user")
+public class UserController {
 
-    private OwnerService service;
+    private UserService service;
 
-    public OwnerController(OwnerService service) {
+    public UserController(UserService service) {
         this.service = service;
     }
 
