@@ -47,12 +47,12 @@ public class Pet {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "owner_id")
-    private Owner owner;
+    private User owner;
 
     public Pet() {
     }
 
-    public Pet(String type, String breed, String gender, String status, String name, Double age, Boolean vaccinated, Boolean chipped, Boolean neutered, String description, Owner owner) {
+    public Pet(String type, String breed, String gender, String status, String name, Double age, Boolean vaccinated, Boolean chipped, Boolean neutered, String description, User owner) {
         this.type = type;
         this.breed = breed;
         this.gender = gender;
@@ -154,11 +154,11 @@ public class Pet {
         this.description = description;
     }
 
-    public Owner getOwner() {
+    public User getOwner() {
         return owner;
     }
 
-    public void setOwner(Owner owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
     }
 }
