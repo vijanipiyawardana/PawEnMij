@@ -24,18 +24,31 @@ const EditMyPet = () => {
   }
 
   const blankList: JSX.Element[] = [];
+  // const [photo, setPhoto] = useState<File>();
 
   const addPhotoTooltip = (props:any) => (
     <Tooltip {...props}>Add new photo</Tooltip>
   );
 
-  const onFileChange = () => {
-    
+  const onFileChange = (e: React.FormEvent<HTMLInputElement>) => {
+    // if (e.currentTarget.files) {
+    //   setPhoto(e.currentTarget.files[0]);
+    // }
+    if (!e.currentTarget.files[0]) {
+      return;
+    }
+    const photoFormData = new FormData();
+    photoFormData.append("photo", e.currentTarget.files[0]);
+
+    axios.post(`http://localhost:3000/`, photoFormData {
+
+    });
+
   }
 
-  const onFileUpload = () => {
+  // const onFileUpload = () => {
 
-  }
+  // }
 
   for (let i = 0; i < numberOfBlanks; i++) {
     blankList.push(
@@ -44,7 +57,7 @@ const EditMyPet = () => {
         <div className="image-upload">
         <label htmlFor="file-input">
             <OverlayTrigger placement='bottom' overlay={addPhotoTooltip}>
-              <img className="photo-pane_photo photo-pane_upload" src={AddNewImage} onClick={onFileUpload}/>
+              <img className="photo-pane_photo photo-pane_upload" src={AddNewImage} />
             </OverlayTrigger>
         </label>
             <input id="file-input" type="file" onChange={onFileChange}/>
