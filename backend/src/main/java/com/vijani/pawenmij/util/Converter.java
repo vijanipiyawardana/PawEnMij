@@ -4,10 +4,10 @@ import com.vijani.pawenmij.dto.MyPetResponseDto;
 import com.vijani.pawenmij.dto.OwnerResponseDto;
 import com.vijani.pawenmij.dto.PetRequestDto;
 import com.vijani.pawenmij.dto.PetResponseDto;
-import com.vijani.pawenmij.model.Owner;
+import com.vijani.pawenmij.model.User;
 import com.vijani.pawenmij.model.Pet;
 import com.vijani.pawenmij.model.Photo;
-import com.vijani.pawenmij.repository.OwnerRepository;
+import com.vijani.pawenmij.repository.UserRepository;
 import com.vijani.pawenmij.repository.PhotoRepository;
 import org.springframework.stereotype.Component;
 
@@ -17,17 +17,17 @@ import java.util.Optional;
 @Component
 public class Converter {
 
-    private OwnerRepository ownerRepository;
+    private UserRepository ownerRepository;
     private PhotoRepository photoRepository;
 
-    public Converter(OwnerRepository ownerRepository, PhotoRepository photoRepository) {
+    public Converter(UserRepository ownerRepository, PhotoRepository photoRepository) {
         this.ownerRepository = ownerRepository;
         this.photoRepository = photoRepository;
     }
 
     public Pet fromPetRequestDto(PetRequestDto dto) {
         // TODO: error handling for get owner when owner is null
-        Optional<Owner> owner = ownerRepository.findById(dto.ownerId());
+        Optional<User> owner = ownerRepository.findById(dto.ownerId());
         return new Pet(
                 dto.type(),
                 dto.breed(),
@@ -81,7 +81,8 @@ public class Converter {
                 pet.getNeutered(),
                 pet.getDescription(),
                 pet.getOwner().getId(),
-                pet.getOwner().getName(),
+                pet.getOwner().getFirstName(),
+                pet.getOwner().getLastName(),
                 pet.getOwner().getEmail(),
                 pet.getOwner().getContact(),
                 pet.getOwner().getHouseNumber(),
@@ -135,10 +136,11 @@ public class Converter {
         return myPetResponses;
     }
 
-    public OwnerResponseDto toOwnerResponseDto(Owner owner) {
+    public OwnerResponseDto toOwnerResponseDto(User owner) {
         return new OwnerResponseDto(
                 owner.getId(),
-                owner.getName(),
+                owner.getFirstName(),
+                owner.getLastName(),
                 owner.getEmail(),
                 owner.getContact(),
                 owner.getHouseNumber(),
