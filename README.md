@@ -87,4 +87,4 @@ The application has following API endpoints.
 
 ## View application
 
-Watch the screencast of running application in [![Pitch](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/jWOZ_e7-ayE){:target="_blank" rel="noopener noreferrer}
+Watch the screencast of running application in [![Pitch](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/jWOZ_e7-ayE)
