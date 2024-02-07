@@ -1,4 +1,4 @@
-package com.vijani.pawenmij.dto;
+package com.vijani.pawenmij.dto.request;
 
 public record OwnerRequestDto(String name,
                               String email,

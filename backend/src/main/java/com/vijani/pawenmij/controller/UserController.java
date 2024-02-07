@@ -1,6 +1,6 @@
 package com.vijani.pawenmij.controller;
 
-import com.vijani.pawenmij.dto.MyPetResponseDto;
+import com.vijani.pawenmij.dto.response.MyPetResponseDto;
 import com.vijani.pawenmij.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

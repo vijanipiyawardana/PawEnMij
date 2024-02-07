@@ -23,3 +23,7 @@ logging:
       springframework:
         boot:
           autoconfigure: ERROR
+
+
+#jwt-secret-key: QmFja2Jhc2VCYWNrZW5kRGV2ZWxvcGVyQXNzaWdubWVudE1vdmllc0FQSVZpamFuaQ==
+jwt-secret-key: ADbvPxM+rGG4QRnj60LHKEOLyxlwFNFN8XTb6a1k2M/IxSr9VKsQisC2DpDcrdiU

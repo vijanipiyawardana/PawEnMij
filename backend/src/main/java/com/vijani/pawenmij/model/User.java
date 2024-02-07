@@ -1,5 +1,6 @@
 package com.vijani.pawenmij.model;
 
+import com.vijani.pawenmij.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +21,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "user_info")
 public class User implements UserDetails {
 
     @Id
@@ -65,7 +66,6 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        // email in our case
         return email;
     }
 

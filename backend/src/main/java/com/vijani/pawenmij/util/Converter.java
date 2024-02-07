@@ -1,9 +1,9 @@
 package com.vijani.pawenmij.util;
 
-import com.vijani.pawenmij.dto.MyPetResponseDto;
-import com.vijani.pawenmij.dto.OwnerResponseDto;
-import com.vijani.pawenmij.dto.PetRequestDto;
-import com.vijani.pawenmij.dto.PetResponseDto;
+import com.vijani.pawenmij.dto.response.MyPetResponseDto;
+import com.vijani.pawenmij.dto.response.OwnerResponseDto;
+import com.vijani.pawenmij.dto.request.PetRequestDto;
+import com.vijani.pawenmij.dto.response.PetResponseDto;
 import com.vijani.pawenmij.model.User;
 import com.vijani.pawenmij.model.Pet;
 import com.vijani.pawenmij.model.Photo;

@@ -1,4 +1,4 @@
-package com.vijani.pawenmij.dto;
+package com.vijani.pawenmij.dto.response;
 
 import java.util.List;
 import java.util.UUID;

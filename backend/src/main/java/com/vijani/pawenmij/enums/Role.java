@@ -1,4 +1,4 @@
-package com.vijani.pawenmij.model;
+package com.vijani.pawenmij.enums;
 
 public enum Role {
     ADOPTER,

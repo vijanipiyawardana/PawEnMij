@@ -1,7 +1,7 @@
 package com.vijani.pawenmij.service;
 
-import com.vijani.pawenmij.dto.PetRequestDto;
-import com.vijani.pawenmij.dto.PetResponseDto;
+import com.vijani.pawenmij.dto.request.PetRequestDto;
+import com.vijani.pawenmij.dto.response.PetResponseDto;
 import com.vijani.pawenmij.model.Pet;
 import com.vijani.pawenmij.repository.PetRepository;
 import com.vijani.pawenmij.repository.PhotoRepository;

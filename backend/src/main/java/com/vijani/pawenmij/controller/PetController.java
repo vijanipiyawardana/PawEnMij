@@ -1,7 +1,7 @@
 package com.vijani.pawenmij.controller;
 
-import com.vijani.pawenmij.dto.PetRequestDto;
-import com.vijani.pawenmij.dto.PetResponseDto;
+import com.vijani.pawenmij.dto.request.PetRequestDto;
+import com.vijani.pawenmij.dto.response.PetResponseDto;
 import com.vijani.pawenmij.service.PetService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
