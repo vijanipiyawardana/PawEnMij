@@ -41,7 +41,7 @@ docker-compose up -d
 ```
 - Open database management tool **Adminer** in browser, localhost:1234
 - Login to the database using credentials given in [`psql.env`](backend/containerConfig/psql.env)
-- Add dummy data to the database using queries given in [`initDb.sql`](backend/containerConfig/initDb.sql)
+- Database will be created and dummy data will be added to the database when docker started, based on queries given in [`initDb.sql`](backend/containerConfig/initDb.sql)
 
 ### Run the backend
 - Open [`backend`](backend) project from any IDE
