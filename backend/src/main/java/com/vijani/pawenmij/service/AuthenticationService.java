@@ -1,7 +1,7 @@
 package com.vijani.pawenmij.service;
 
 import com.vijani.pawenmij.dto.request.SignUpRequest;
-import com.vijani.pawenmij.dto.request.SigninRequest;
+import com.vijani.pawenmij.dto.request.SignInRequest;
 import com.vijani.pawenmij.dto.response.JwtAuthenticationResponse;
 import com.vijani.pawenmij.enums.Role;
 import com.vijani.pawenmij.model.User;
@@ -28,6 +28,7 @@ public class AuthenticationService implements AuthenticationServiceInterface {
         User user = User.builder()
                 .firstName(request.firstName())
                 .lastName(request.lastName())
+                .contact(request.contact())
                 .email(request.email())
                 .password(passwordEncoder.encode(request.password()))
                 .role(Role.ADOPTER)
@@ -38,7 +39,7 @@ public class AuthenticationService implements AuthenticationServiceInterface {
     }
 
     @Override
-    public JwtAuthenticationResponse signin(SigninRequest request) {
+    public JwtAuthenticationResponse signin(SignInRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.email(),

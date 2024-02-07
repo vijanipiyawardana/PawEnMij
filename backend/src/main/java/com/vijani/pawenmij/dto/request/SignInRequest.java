@@ -1,6 +1,6 @@
 package com.vijani.pawenmij.dto.request;
 
-public record SigninRequest(
+public record SignInRequest(
         String email,
         String password) {
 }

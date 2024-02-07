@@ -30,30 +30,31 @@ public class User implements UserDetails {
     @GenericGenerator(name = "uuid-hibernate-generator", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "houseNumber", nullable = false)
+    @Column(name = "house_number")
     private String houseNumber;
 
-    @Column(name = "streetName", nullable = false)
+    @Column(name = "street_name")
     private String streetName;
 
-    @Column(name = "postcode", nullable = false)
+    @Column(name = "postcode")
     private String postcode;
 
-    @Column(name = "city", nullable = false)
+    @Column(name = "city")
     private String city;
 
     @Column(name = "contact", nullable = false)
     private String contact;
 
-    @Column(name = "email", unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
+    @Column(name = "password", nullable = false)
     private String password;
 
     @Enumerated(EnumType.STRING)

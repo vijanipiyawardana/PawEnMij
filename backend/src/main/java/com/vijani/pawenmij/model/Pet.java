@@ -1,10 +1,18 @@
 package com.vijani.pawenmij.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.UUID;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "pet")
 public class Pet {
@@ -18,10 +26,10 @@ public class Pet {
     @Column(name = "type", nullable = false)
     private String type;
 
-    @Column(name = "breed")
+    @Column(name = "breed", nullable = false)
     private String breed;
 
-    @Column(name = "gender")
+    @Column(name = "gender", nullable = false)
     private String gender;
 
     @Column(name = "status")
@@ -49,9 +57,6 @@ public class Pet {
     @JoinColumn(name = "owner_id")
     private User owner;
 
-    public Pet() {
-    }
-
     public Pet(String type, String breed, String gender, String status, String name, Double age, Boolean vaccinated, Boolean chipped, Boolean neutered, String description, User owner) {
         this.type = type;
         this.breed = breed;
@@ -63,102 +68,6 @@ public class Pet {
         this.chipped = chipped;
         this.neutered = neutered;
         this.description = description;
-        this.owner = owner;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getBreed() {
-        return breed;
-    }
-
-    public void setBreed(String breed) {
-        this.breed = breed;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getAge() {
-        return age;
-    }
-
-    public void setAge(Double age) {
-        this.age = age;
-    }
-
-    public Boolean getVaccinated() {
-        return vaccinated;
-    }
-
-    public void setVaccinated(Boolean vaccinated) {
-        this.vaccinated = vaccinated;
-    }
-
-    public Boolean getChipped() {
-        return chipped;
-    }
-
-    public void setChipped(Boolean chipped) {
-        this.chipped = chipped;
-    }
-
-    public Boolean getNeutered() {
-        return neutered;
-    }
-
-    public void setNeutered(Boolean neutered) {
-        this.neutered = neutered;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
         this.owner = owner;
     }
 }

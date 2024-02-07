@@ -1,7 +1,7 @@
 package com.vijani.pawenmij.controller;
 
 import com.vijani.pawenmij.dto.request.SignUpRequest;
-import com.vijani.pawenmij.dto.request.SigninRequest;
+import com.vijani.pawenmij.dto.request.SignInRequest;
 import com.vijani.pawenmij.dto.response.JwtAuthenticationResponse;
 import com.vijani.pawenmij.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody SigninRequest request) {
+    public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody SignInRequest request) {
         return ResponseEntity.ok(authenticationService.signin(request));
     }
 }

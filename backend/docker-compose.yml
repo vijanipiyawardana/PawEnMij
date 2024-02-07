@@ -8,10 +8,10 @@ services:
     ports:
       - 5432:5432
     volumes:
-#      - ./containerConfig/initDb.sql:/docker-entrypoint-initdb.d/initDb.sql
-      - ./data/psql:/var/lib/postgresql/data
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 1234:8080
+      - ./containerConfig/initDb.sql:/docker-entrypoint-initdb.d/initDb.sql
+#      - ./data/psql:/var/lib/postgresql/data
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - 1234:8080
