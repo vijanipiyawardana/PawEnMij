@@ -39,9 +39,9 @@ PawEnMij is a user-friendly **Java Full Stack Web Application** that connects po
 ```shell
 docker-compose up -d
 ```
+- Database will be created and dummy data will be added to the database when docker started, based on queries given in [`initDb.sql`](backend/containerConfig/initDb.sql)
 - Open database management tool **Adminer** in browser, localhost:1234
 - Login to the database using credentials given in [`psql.env`](backend/containerConfig/psql.env)
-- Database will be created and dummy data will be added to the database when docker started, based on queries given in [`initDb.sql`](backend/containerConfig/initDb.sql)
 
 ### Run the backend
 - Open [`backend`](backend) project from any IDE
@@ -67,10 +67,12 @@ npm run dev
 ## Use cases
 
 - Pet adaptor
+    - SignIn/ SignUp
     - View available pets
     - View more infomation of a pet
     - View shelter owner details
 - Shelter owner
+    - SignIn/ SignUp
     - Add a new pet
     - Add photos to the added pet
 
